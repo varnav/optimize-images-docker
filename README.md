@@ -1,6 +1,7 @@
 ## What's this?
 
 It's dockerized [optimize-images](https://github.com/victordomingos/optimize-images/)
+Uses [mozjpeg](https://github.com/mozilla/mozjpeg) library systemwide
 
 ## How to use
 
