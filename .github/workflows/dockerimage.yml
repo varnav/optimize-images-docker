@@ -31,7 +31,7 @@ jobs:
         sudo lynis audit dockerfile mozjpeg/Dockerfile --no-colors
         sudo lynis audit dockerfile libjpeg/Dockerfile --no-colors  
 
-    - name: Build the Docker image
-      run: |
-        docker build mozjpeg -t varnav/optimize-images -t varnav/optimize-images:mozjpeg
-        docker build libjpeg -t varnav/optimize-images:libjpeg
+    # - name: Build the Docker image
+    #   run: |
+    #     docker build mozjpeg -t varnav/optimize-images -t varnav/optimize-images:mozjpeg
+    #     docker build libjpeg -t varnav/optimize-images:libjpeg
