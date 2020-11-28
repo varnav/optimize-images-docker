@@ -5,13 +5,6 @@ Uses [mozjpeg](https://github.com/mozilla/mozjpeg) library systemwide
 
 ## How to use
 
-### Build
-
-```sh
-git clone https://github.com/varnav/optimize-images.git
-cd optimize-images && docker build . -t varnav/optimize-images
-```
-
 ### Run interactively to optimize /home/john/Photos/vacation folder keeping quality at 85
 
 ```sh
@@ -22,4 +15,12 @@ docker run --rm -it -v /home/john/Photos/vacation:/data varnav/optimize-images -
 
 ```sh
 docker run -d --name optimize-images -v /opt/imagedir/:/data --restart unless-stopped --security-opt no-new-privileges  varnav/optimize-images --watch-directory /data
+```
+
+### Build (optional)
+
+```sh
+git clone https://github.com/varnav/optimize-images.git && cd optimize-images
+docker build mozjpeg -t varnav/optimize-images -t varnav/optimize-images:mozjpeg
+docker build libjpeg -t varnav/optimize-images:libjpeg
 ```
