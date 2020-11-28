@@ -1,12 +1,16 @@
 name: Docker Builder
 
-on: [push]
+on:   
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 3' # Every wednesday
 
 jobs:
-
-  name: Build
   build:
- 
+    name: Build
     runs-on: ubuntu-latest
  
     steps:
