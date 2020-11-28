@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
 
+  name: Build
   build:
  
     runs-on: ubuntu-latest

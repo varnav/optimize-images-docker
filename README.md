@@ -2,7 +2,9 @@
 
 It's dockerized [optimize-images](https://github.com/victordomingos/optimize-images/)
 
-Uses [mozjpeg](https://github.com/mozilla/mozjpeg) library systemwide. You can select standard system library by `libjpeg` tag.
+Uses [mozjpeg](https://github.com/mozilla/mozjpeg) library systemwide. This means more efficient and faster compression compared to native OS library.
+
+You can revert to standard system library by `libjpeg` tag.
 
 ## How to use
 
