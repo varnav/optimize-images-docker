@@ -19,9 +19,7 @@ RUN set -ex \
 
 RUN set -ex \
 && apt-get update \
-&& apt-get --no-install-recommends -y install build-essential cmake libtool autoconf automake m4 nasm pkg-config \
-&& apt-get clean \
-&& rm -rf /var/lib/apt/lists/* \
+&& apt-get install --no-install-recommends -y libpng-dev libjpeg-dev wget ca-certificates build-essential cmake libtool autoconf automake m4 nasm pkg-config \
 && ldconfig /usr/lib \
 && wget https://github.com/mozilla/mozjpeg/archive/v4.0.0.tar.gz \
 && tar xf v4.0.0.tar.gz \
@@ -31,8 +29,10 @@ RUN set -ex \
 && cmake -G"Unix Makefiles" .. \
 && make install libdir=/usr/lib/x86_64-linux-gnu prefix=/usr \
 && cp ../jpegint.h /usr/include/jpegint.h \
-&& pip install --upgrade --no-cache-dir --force-reinstall --no-binary :all: --compile -v Pillow
-
+&& pip install --upgrade --no-cache-dir --force-reinstall --no-binary :all: --compile -v Pillow \
+&& apt-get remove -y build-essential cmake libtool autoconf automake m4 nasm pkg-config \
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/*
 
 USER user
 VOLUME /data

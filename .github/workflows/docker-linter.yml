@@ -18,7 +18,7 @@ jobs:
         echo "deb https://packages.cisofy.com/community/lynis/deb/ stable main" | sudo tee /etc/apt/sources.list.d/cisofy-lynis.list
         sudo apt-get update
         sudo apt-get -y install lynis
-        curl -sL -o ./hadolint "https://github.com/hadolint/hadolint/releases/download/v1.17.3/hadolint-$(uname -s)-$(uname -m)"
+        curl -sL -o ./hadolint "https://github.com/hadolint/hadolint/releases/download/v1.19.0/hadolint-$(uname -s)-$(uname -m)"
         chmod 700 ./hadolint
 
     - name: Lint with hadolint
@@ -31,7 +31,3 @@ jobs:
         sudo lynis audit dockerfile mozjpeg/Dockerfile --no-colors
         sudo lynis audit dockerfile libjpeg/Dockerfile --no-colors  
 
-    # - name: Build the Docker image
-    #   run: |
-    #     docker build mozjpeg -t varnav/optimize-images -t varnav/optimize-images:mozjpeg
-    #     docker build libjpeg -t varnav/optimize-images:libjpeg

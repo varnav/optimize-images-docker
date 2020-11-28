@@ -1,7 +1,8 @@
 ## What's this?
 
 It's dockerized [optimize-images](https://github.com/victordomingos/optimize-images/)
-Uses [mozjpeg](https://github.com/mozilla/mozjpeg) library systemwide
+
+Uses [mozjpeg](https://github.com/mozilla/mozjpeg) library systemwide. You can select standard system library by `libjpeg` tag.
 
 ## How to use
 
@@ -14,7 +15,7 @@ docker run --rm -it -v /home/john/Photos/vacation:/data varnav/optimize-images -
 ### Run as daemon, watching /opt/imagedir directory
 
 ```sh
-docker run -d --name optimize-images -v /opt/imagedir/:/data --restart unless-stopped --security-opt no-new-privileges  varnav/optimize-images --watch-directory /data
+docker run -d --name optimize-images -v /opt/imagedir/:/data --restart on-failure:10 --network none --security-opt no-new-privileges  varnav/optimize-images --watch-directory /data
 ```
 
 ### Build (optional)
