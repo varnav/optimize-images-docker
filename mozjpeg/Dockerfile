@@ -8,6 +8,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 ARG HOST_USER_UID=1000
 ARG HOST_USER_GID=1000
+ARG MOZJPEG_VER=4.0.0
 
 RUN set -ex \
 && groupadd --gid "$HOST_USER_GID" user \
@@ -21,9 +22,10 @@ RUN set -ex \
 && apt-get update \
 && apt-get install --no-install-recommends -y libimagequant-dev libpng-dev libjpeg-dev wget ca-certificates build-essential cmake libtool autoconf automake m4 nasm pkg-config \
 && ldconfig /usr/lib \
-&& wget https://github.com/mozilla/mozjpeg/archive/v4.0.0.tar.gz \
-&& tar xf v4.0.0.tar.gz \
-&& cd mozjpeg-4.0.0 \
+&& cd /tmp \
+&& wget https://github.com/mozilla/mozjpeg/archive/v${MOZJPEG_VER}.tar.gz \
+&& tar xf v${MOZJPEG_VER}.tar.gz \
+&& cd mozjpeg-${MOZJPEG_VER} \
 && mkdir build \
 && cd build \
 && cmake -G"Unix Makefiles" .. \
@@ -32,7 +34,10 @@ RUN set -ex \
 && pip install --upgrade --no-cache-dir --force-reinstall --no-binary :all: --compile -v Pillow \
 && apt-get remove -y libimagequant-dev libpng-dev libjpeg-dev build-essential cmake libtool autoconf automake m4 nasm pkg-config \
 && apt-get clean \
-&& rm -rf /var/lib/apt/lists/*
+&& rm -rf /var/lib/apt/lists/* \
+&& cd /tmp \
+&& rm -rf mozjpeg-${MOZJPEG_VER}
+
 
 USER user
 VOLUME /data
