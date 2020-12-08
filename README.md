@@ -20,10 +20,16 @@ docker run --rm -it -v /home/john/Photos/vacation:/data varnav/optimize-images -
 docker run -d --name optimize-images -v "/opt/imagedir/:/data" --restart on-failure:10 --network none --security-opt no-new-privileges  varnav/optimize-images --watch-directory /data
 ```
 
+### About experimental variant
+
+* Will skip image replacement if gain is less than 5%
+* Will be compiled optimized for your CPU, forcing AVX2 instructions. For this reason, you need to build it first, see below.
+
 ### Build (optional)
 
 ```sh
 git clone https://github.com/varnav/optimize-images.git && cd optimize-images
 docker build mozjpeg -t varnav/optimize-images -t varnav/optimize-images:mozjpeg
 docker build libjpeg -t varnav/optimize-images:libjpeg
+docker build experimental -t varnav/optimize-images:experimental
 ```

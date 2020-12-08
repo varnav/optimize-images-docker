@@ -30,7 +30,7 @@ RUN set -ex \
 && cmake -G"Unix Makefiles" .. \
 && make -j4 install libdir=/usr/lib/x86_64-linux-gnu prefix=/usr \
 && cp ../jpegint.h /usr/include/jpegint.h \
-&& CC="cc -mavx2 -march native" pip install --upgrade --no-cache-dir --force-reinstall --no-binary :all: --compile -v Pillow \
+&& CC="cc -mavx2 -march=native" pip install --upgrade --no-cache-dir --force-reinstall --no-binary :all: --compile -v Pillow \
 && apt-get remove -y libimagequant-dev libpng-dev libjpeg-dev build-essential cmake libtool autoconf automake m4 nasm pkg-config \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
