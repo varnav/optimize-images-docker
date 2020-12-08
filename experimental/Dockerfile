@@ -5,6 +5,7 @@ LABEL Description="Python optimize-images in Docker"
 LABEL License="MIT License"
 
 ARG DEBIAN_FRONTEND=noninteractive
+ARG CFLAGS="-mavx2 -march=native"
 
 ARG HOST_USER_UID=1000
 ARG HOST_USER_GID=1000
