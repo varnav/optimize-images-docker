@@ -1,3 +1,5 @@
+[![Docker Pulls](https://img.shields.io/docker/pulls/varnav/optimize-images.svg)](https://hub.docker.com/r/varnav/optimize-images) [![](https://images.microbadger.com/badges/image/varnav/optimize-images.svg)](https://microbadger.com/images/varnav/optimize-images "Image details") [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT/)
+
 ## What's this?
 
 It's dockerized [optimize-images](https://github.com/victordomingos/optimize-images/)
