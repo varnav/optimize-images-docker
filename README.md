@@ -6,14 +6,12 @@ It's dockerized [optimize-images](https://github.com/victordomingos/optimize-ima
 
 Uses latest version of [mozjpeg](https://github.com/mozilla/mozjpeg) library systemwide. Pillow is compiled with libimagequant. This means more efficient and faster compression compared to native OS library.
 
-You can revert to standard system library by `libjpeg` tag.
-
 ## How to use
 
-### Run interactively to optimize /home/john/Photos/vacation folder keeping quality at 85
+### Run interactively to optimize /home/john/Photos/vacation folder keeping quality at 85 and width no more than 4096px
 
 ```sh
-docker run --rm -it -v /home/john/Photos/vacation:/data varnav/optimize-images -q 85 --keep-exif /data
+docker run --rm -it -v /home/john/Photos/vacation:/data varnav/optimize-images -q 85 -mw 4096 --keep-exif /data
 ```
 
 ### Run as daemon, watching /opt/imagedir directory
@@ -25,6 +23,6 @@ docker run -d --name optimize-images -v "/opt/imagedir/:/data" --restart on-fail
 ### Build (optional)
 
 ```sh
-git clone https://github.com/varnav/optimize-images.git && cd optimize-images
+git clone https://github.com/varnav/optimize-images-docker.git && cd optimize-images-docker
 docker build . -t varnav/optimize-images
 ```
