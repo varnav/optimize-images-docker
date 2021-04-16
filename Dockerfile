@@ -13,7 +13,7 @@ ARG MOZJPEG_VER=4.0.3
 RUN set -ex \
 && groupadd --gid "$HOST_USER_GID" user \
 && useradd --uid "$HOST_USER_UID" --gid "$HOST_USER_GID" --create-home --shell /bin/bash user \
-&& pip install pillow optimize-images watchdog
+&& pip install pillow watchdog
 
 ### Code below will replace standard OS JPEG library with mozjpeg
 ### https://blog.avirtualhome.com/replace-jpeg-libraries-with-mozjpeg/
@@ -36,7 +36,8 @@ RUN set -ex \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* \
 && cd /tmp \
-&& rm -rf mozjpeg-${MOZJPEG_VER}
+&& rm -rf mozjpeg-${MOZJPEG_VER} \
+&& pip install https://github.com/victordomingos/optimize-images/archive/refs/heads/master.zip
 
 
 USER user
