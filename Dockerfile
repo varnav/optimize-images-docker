@@ -8,7 +8,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 ARG HOST_USER_UID=1000
 ARG HOST_USER_GID=1000
-ARG MOZJPEG_VER=4.0.0
+ARG MOZJPEG_VER=4.0.3
 
 RUN set -ex \
 && groupadd --gid "$HOST_USER_GID" user \
