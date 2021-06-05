@@ -32,6 +32,7 @@ RUN set -ex \
 && make -j4 install libdir=/usr/lib/x86_64-linux-gnu prefix=/usr \
 && cp ../jpegint.h /usr/include/jpegint.h \
 && pip install --upgrade --no-cache-dir --force-reinstall --no-binary :all: --compile -v Pillow \
+&& pip install piexif watchdog \
 && apt-get remove -y libimagequant-dev libpng-dev libjpeg-dev build-essential cmake libtool autoconf automake m4 nasm pkg-config \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* \
