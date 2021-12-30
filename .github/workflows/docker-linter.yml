@@ -33,6 +33,5 @@ jobs:
 
     - name: Security scan with Lynis
       run:  |
-        sudo lynis audit dockerfile mozjpeg/Dockerfile --no-colors
-        sudo lynis audit dockerfile libjpeg/Dockerfile --no-colors  
+        sudo lynis audit dockerfile Dockerfile --no-colors
 
