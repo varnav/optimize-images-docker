@@ -29,8 +29,7 @@ jobs:
 
     - name: Lint with hadolint
       run: |
-        ./hadolint --ignore DL3013 --ignore DL3003 --ignore DL3008 mozjpeg/Dockerfile
-        ./hadolint --ignore DL3013 --ignore DL3003 --ignore DL3008 libjpeg/Dockerfile
+        ./hadolint --ignore DL3013 --ignore DL3003 --ignore DL3008 Dockerfile
 
     - name: Security scan with Lynis
       run:  |
