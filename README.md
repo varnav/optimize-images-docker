@@ -26,3 +26,7 @@ docker run -d --name optimize-images -v "/opt/imagedir/:/data" --restart on-fail
 git clone https://github.com/varnav/optimize-images-docker.git && cd optimize-images-docker
 docker build . -t varnav/optimize-images
 ```
+
+### See also
+
+* [filmcompress](https://github.com/varnav/filmcompress)
