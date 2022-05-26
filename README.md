@@ -38,7 +38,7 @@ Try [Squoosh CLI](https://www.npmjs.com/package/@squoosh/cli):
 
 ```
 npm i -g @squoosh/cli
-find . -name "*.jpg" -exec bash -c 'file="{}"; squoosh-cli "$file"' \;
+find . -name "*.jpg" -exec bash -c 'file="{}"; squoosh-cli --mozjpeg auto "$file"' \;
 ```
 
 Thanks to [Zachary](https://zachrussell.net/blog/bulk-optimize-images-with-squoosh-cli/)
