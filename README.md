@@ -31,6 +31,7 @@ docker build . -t varnav/optimize-images
 
 * [filmcompress](https://github.com/varnav/filmcompress) - bulk compress movie files
 * [ExifDate2FS](https://github.com/varnav/ExifDate2FS) - organize photo library by date
+* [jpegoptim](https://github.com/tjko/jpegoptim)
 
 ### Alternative
 
