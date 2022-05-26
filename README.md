@@ -31,3 +31,14 @@ docker build . -t varnav/optimize-images
 
 * [filmcompress](https://github.com/varnav/filmcompress) - bulk compress movie files
 * [ExifDate2FS](https://github.com/varnav/ExifDate2FS) - organize photo library by date
+
+### Alternative
+
+Try [Squoosh CLI](https://www.npmjs.com/package/@squoosh/cli):
+
+```
+npm i -g @squoosh/cli
+find . -name "*.jpg" -exec bash -c 'file="{}"; squoosh-cli --mozjpeg auto "$file"' \;
+```
+
+Thanks to [Zachary](https://zachrussell.net/blog/bulk-optimize-images-with-squoosh-cli/)
