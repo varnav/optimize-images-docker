@@ -9,7 +9,11 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 ARG HOST_USER_UID=1000
 ARG HOST_USER_GID=1000
+
+# Here we set versions:
+
 ARG MOZJPEG_VER=4.0.3
+ARG OI_VER=1.4.0
 
 RUN set -ex \
 && groupadd --gid "$HOST_USER_GID" user \
@@ -39,7 +43,7 @@ RUN set -ex \
 && rm -rf /var/lib/apt/lists/* \
 && cd /tmp \
 && rm -rf mozjpeg-${MOZJPEG_VER} \
-&& pip install --no-cache-dir https://github.com/victordomingos/optimize-images/archive/refs/heads/master.zip
+&& pip install --no-cache-dir https://github.com/victordomingos/optimize-images/archive/refs/tags/v.${OI_VER}.zip
 
 
 USER user
